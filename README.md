@@ -9,7 +9,8 @@ are fxed value, that is, M=16, OR=56, OC=56, N=16, IR=56, IC=56, K=3, S=1, P=1, 
 * The final speedup of this algorithm is 117.77x.
 
 ## Hardware struture
-![hardware architecture](/fig/arch.png)
+![hardware architecture](https://github.com/lirui-shanghaitech/A-convolution-kernel-implemented-by-Vivado-HLS/blob/master/fig/arch.PNG)
+
 We identify data reuse opportunities in the feature maps of neighboring tiles. To this end, we naturally
 implement line buffers. There are multiple channels of input feature maps (M) as shown in Figure 1.
 Each line of the line buffers stores the same rows across all the channels. Winograd/Elemente-Wise-
@@ -85,7 +86,7 @@ conv_read(cofm, ofm_buff1, &cofm_counter, 1);
 ## Experiment result
 We have implemented four methods. In method one we using 16 Element-wise-multipliction PEs to calculate convolution without Ping-Pong buffer. The method two still utilized 16 Element-wise-multipliction PEs but using Ping-Pong of input and output buffer to acheive best parallelism. In method two although we can write, process convolution, write back data at the same time but the time of wrting one row is longer than process convolution, in another word our system is limited by the bandwith of PS-PL communication. Thus in method 3 we using data pack method to improve the system bandwidth by using 16 PEs. In method four we using the same method as method three except there are 32 PEs, in this method we improve the system computation ability to match the high bandwidth of current system and this acheive the best performance. The following compares the performance and resource utilization of these four methods.
 
-![exp result](/fig/result.png)
+![exp result](https://github.com/lirui-shanghaitech/A-convolution-kernel-implemented-by-Vivado-HLS/blob/master/fig/result.PNG)
 
 ## Reference
 [1]	L. Lu, Y. Liang, Q. Xiao and S. Yan, "Evaluating Fast Algorithms for Convolutional Neural Networks on FPGAs," 2017 IEEE 25th Annual International Symposium on Field-Programmable Custom Computing Machines (FCCM), Napa, CA, 2017, pp. 101-108.
