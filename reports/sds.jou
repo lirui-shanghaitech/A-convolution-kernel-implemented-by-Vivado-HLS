@@ -1,0 +1,94 @@
+(c) Copyright 2012-2018 Xilinx, Inc. All Rights Reserved.
+#-----------------------------------------------------------
+# Tool version  : sds++ 2018.2 SW Build 2258646 on Thu Jun 14 20:04:27 MDT 2018
+# Start time    : Wed Jun 12 16:07:40 +0800 2019
+# Command line  : sds++ -L/usr/lib -L/lib {--sysroot=E:\reconfiguration_lab\SYSROOT_arm64} {-Wl,-rpath-link=E:\reconfiguration_lab\SYSROOT_arm64/lib,-rpath-link=E:\reconfiguration_lab\SYSROOT_arm64/usr/lib} --remote_ip_cache E:/C_FPGA_PRO/ip_cache -o cnn_accelerator.elf ./src/main.o -lopencv_core -lopencv_highgui -lopencv_videoio -lopencv_imgcodecs -lopencv_imgproc -dmclkid 3 -sds-sys-config ubuntu -sds-proc ubuntu -sds-pf zcu104_dvfs
+# Log file      : E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/reports/sds.log
+# Journal file  : E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/reports/sds.jou
+# Report file   : E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/reports/sds.rpt
+#-----------------------------------------------------------
+
+#-----------------------------------------------------------
+# This file contains undocumented internal commands and is
+# provided for diagnostic purposes. To reproduce the results
+# of this run, please run the sds++ command line above again.
+#-----------------------------------------------------------
+
+# Removing implementation files from previous run
+# Analyzing object files
+aarch64-linux-gnu-objcopy -O binary --set-section-flags .xdinfo=alloc --only-section=.xdinfo E:/C_FPGA_PRO/cnn_accelerator/Release/src/main.o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/.data/xdinfo.xml
+aarch64-linux-gnu-objcopy -O binary --set-section-flags .xddata=alloc --only-section=.xddata E:/C_FPGA_PRO/cnn_accelerator/Release/src/main.o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/.data/convolution_hw.xml
+aarch64-linux-gnu-objcopy -O binary --set-section-flags .xdpp=alloc --only-section=.xdpp E:/C_FPGA_PRO/cnn_accelerator/Release/src/main.o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/.pp/main.ii
+aarch64-linux-gnu-objcopy -O binary --set-section-flags .xdfcnmap=alloc --only-section=.xdfcnmap E:/C_FPGA_PRO/cnn_accelerator/Release/src/main.o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/.cdb/convolution_hw.convolution_hw.fcnmap.xml
+aarch64-linux-gnu-objcopy -O binary --set-section-flags .xdhlscore=alloc --only-section=.xdhlscore E:/C_FPGA_PRO/cnn_accelerator/Release/src/main.o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/iprepo/repo/xilinx_com_hls_convolution_hw_1_0/xilinx_com_hls_convolution_hw_1_0.zip
+H:/Vivado/SDx/2018.2/bin/unzip.bat -u -o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/iprepo/repo/xilinx_com_hls_convolution_hw_1_0/xilinx_com_hls_convolution_hw_1_0.zip -d E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/iprepo/repo/xilinx_com_hls_convolution_hw_1_0
+aarch64-linux-gnu-objcopy -O binary --set-section-flags .xdif=alloc --only-section=.xdif E:/C_FPGA_PRO/cnn_accelerator/Release/src/main.o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/.cdb/convolution_hw_if.xml
+H:/Vivado/SDx/2018.2/bin/build_xd_ip_db -ip_search 0  -sds-pf E:/C_FPGA_PRO/cnn_accelerator/Release/.Xil/zcu104_dvfs.hpfm  -ip E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/iprepo/repo/xilinx_com_hls_convolution_hw_1_0  -o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/.cdb/xd_ip_db.xml  
+# Generating data motion network
+H:/Vivado/SDx/2018.2/bin/llvm-link -o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/.llvm/sds_all.o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/.llvm/./src/main.s
+cd E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/.llvm
+cd E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/.llvm
+H:/Vivado/SDx/2018.2/bin/XidanePass  --platform zcu104_dvfs  --dmclkid 3  --repo E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/.cdb/xd_ip_db.xml  --dmdb H:/Vivado/SDx/2018.2/data/DM.db   -os linux -processor cortex-a53 -partition 0  
+cd E:/C_FPGA_PRO/cnn_accelerator/Release
+# Removing implementation files from previous run E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/p0/vivado
+# Removing implementation files from previous run E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/p0/vpl
+cd E:/C_FPGA_PRO/cnn_accelerator/Release
+# Creating block diagram (BD)
+cd E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/p0/.xsd
+H:/Vivado/SDx/2018.2/bin/sdx_link  -cf-system E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/.llvm/apsys_0.xml  -cf-db  E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/.cdb/xd_ip_db.xml  -xpfm H:/Vivado/SDx/2018.2/platforms/zcu104_dvfs/zcu104_dvfs.xpfm   -multi-clks -trace-buffer 1024 -quiet
+cd E:/C_FPGA_PRO/cnn_accelerator/Release
+cd _sds/p0/.cf_work
+H:/Vivado/SDx/2018.2/bin/cf2sw  -i E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/.llvm/apsys_0.xml  -r E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/.cdb/xd_ip_db.xml  -pollMode 0 -mc
+cd E:/C_FPGA_PRO/cnn_accelerator/Release
+# Rewrite caller functions
+cd E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs
+aarch64-linux-gnu-objcopy -O binary --set-section-flags .xdinfo=alloc --only-section=.xdinfo E:/C_FPGA_PRO/cnn_accelerator/Release/src/main.o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/.data/xdinfo.xml
+H:/Vivado/SDx/2018.2/bin/caller_rewrite  -rewrite E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/.llvm/caller0.cfrewrite  -o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/main.cpp  E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/unix_main.cpp  --  -c  -IE:/C_FPGA_PRO/cnn_accelerator/src -IE:/C_FPGA_PRO/cnn_accelerator/src -IE:/reconfiguration_lab/SYSROOT_arm64 -IE:/reconfiguration_lab/SYSROOT_arm64/usr/include -Wall -O3 -fmessage-length=0 -MMD -MP -D __SDSCC__  -target aarch64-linux-gnu -mcpu=cortex-a53 -O0 -g -w    -I H:/Vivado/SDx/2018.2/target/aarch64-linux/include  -D HLS_NO_XIL_FPO_LIB  -I H:/Vivado/Vivado/2018.2/include   -IH:/Vivado/SDK/2018.2/gnu/aarch64/nt/aarch64-linux/aarch64-linux-gnu/include/c++/7.2.1 -IH:/Vivado/SDK/2018.2/gnu/aarch64/nt/aarch64-linux/aarch64-linux-gnu/include/c++/7.2.1/aarch64-linux-gnu -IH:/Vivado/SDK/2018.2/gnu/aarch64/nt/aarch64-linux/aarch64-linux-gnu/include/c++/7.2.1/backward -IH:/Vivado/SDK/2018.2/gnu/aarch64/nt/aarch64-linux/lib/gcc/aarch64-linux-gnu/7.2.1/include -IH:/Vivado/SDK/2018.2/gnu/aarch64/nt/aarch64-linux/lib/gcc/aarch64-linux-gnu/7.2.1/include-fixed -IH:/Vivado/SDK/2018.2/gnu/aarch64/nt/aarch64-linux/aarch64-linux-gnu/include -IH:/Vivado/SDK/2018.2/gnu/aarch64/nt/aarch64-linux/aarch64-linux-gnu/libc/usr/include  -std=c++11
+# Compile caller rewrite file E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/main.cpp
+aarch64-linux-gnu-g++  -c E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/main.cpp  -IE:/C_FPGA_PRO/cnn_accelerator/src -IE:/C_FPGA_PRO/cnn_accelerator/src -IE:/reconfiguration_lab/SYSROOT_arm64 -IE:/reconfiguration_lab/SYSROOT_arm64/usr/include -Wall -O3 -fmessage-length=0 -MMD -MP -D __SDSCC__      -I H:/Vivado/SDx/2018.2/target/aarch64-linux/include  -D HLS_NO_XIL_FPO_LIB  -I H:/Vivado/Vivado/2018.2/include  -o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/main.o
+cd E:/C_FPGA_PRO/cnn_accelerator/Release
+# Prepare hardware access API functions
+cd E:/C_FPGA_PRO/cnn_accelerator/Release
+# Create accelerator stub functions
+cd E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs
+H:/Vivado/SDx/2018.2/bin/stub_gen  -func "convolution_hw" -stub E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/.llvm/convolution_hw.cfrewrite  -o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/main.cpp  E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/unix_main.cpp  --  -c  -IE:/C_FPGA_PRO/cnn_accelerator/src -IE:/C_FPGA_PRO/cnn_accelerator/src -IE:/reconfiguration_lab/SYSROOT_arm64 -IE:/reconfiguration_lab/SYSROOT_arm64/usr/include -Wall -O3 -fmessage-length=0 -MMD -MP -D __SDSCC__  -target aarch64-linux-gnu -mcpu=cortex-a53 -O0 -g -w    -I H:/Vivado/SDx/2018.2/target/aarch64-linux/include  -D HLS_NO_XIL_FPO_LIB  -I H:/Vivado/Vivado/2018.2/include   -IH:/Vivado/SDK/2018.2/gnu/aarch64/nt/aarch64-linux/aarch64-linux-gnu/include/c++/7.2.1 -IH:/Vivado/SDK/2018.2/gnu/aarch64/nt/aarch64-linux/aarch64-linux-gnu/include/c++/7.2.1/aarch64-linux-gnu -IH:/Vivado/SDK/2018.2/gnu/aarch64/nt/aarch64-linux/aarch64-linux-gnu/include/c++/7.2.1/backward -IH:/Vivado/SDK/2018.2/gnu/aarch64/nt/aarch64-linux/lib/gcc/aarch64-linux-gnu/7.2.1/include -IH:/Vivado/SDK/2018.2/gnu/aarch64/nt/aarch64-linux/lib/gcc/aarch64-linux-gnu/7.2.1/include-fixed -IH:/Vivado/SDK/2018.2/gnu/aarch64/nt/aarch64-linux/aarch64-linux-gnu/include -IH:/Vivado/SDK/2018.2/gnu/aarch64/nt/aarch64-linux/aarch64-linux-gnu/libc/usr/include  -std=c++11
+cd E:/C_FPGA_PRO/cnn_accelerator/Release
+cd E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs
+# Compile hardware access API functions
+aarch64-linux-gnu-gcc       -I H:/Vivado/SDx/2018.2/target/aarch64-linux/include  -D HLS_NO_XIL_FPO_LIB  -I H:/Vivado/Vivado/2018.2/include -c  E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/portinfo.c
+aarch64-linux-gnu-g++      -I H:/Vivado/SDx/2018.2/target/aarch64-linux/include  -D HLS_NO_XIL_FPO_LIB  -I H:/Vivado/Vivado/2018.2/include -c  E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/cf_stub.c
+aarch64-linux-gnu-ar crs E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/libxlnk_stub.a E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/portinfo.o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/cf_stub.o
+cd E:/C_FPGA_PRO/cnn_accelerator/Release
+cd E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs
+# Compile accelerator stub functions
+aarch64-linux-gnu-g++ -c main.cpp  -IE:/C_FPGA_PRO/cnn_accelerator/src -IE:/C_FPGA_PRO/cnn_accelerator/src -IE:/reconfiguration_lab/SYSROOT_arm64 -IE:/reconfiguration_lab/SYSROOT_arm64/usr/include -Wall -O3 -fmessage-length=0 -MMD -MP -D __SDSCC__      -I H:/Vivado/SDx/2018.2/target/aarch64-linux/include  -D HLS_NO_XIL_FPO_LIB  -I H:/Vivado/Vivado/2018.2/include -o main.o
+cd E:/C_FPGA_PRO/cnn_accelerator/Release
+cd E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs
+aarch64-linux-gnu-ar crs E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/libcnn_accelerator.a E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/portinfo.o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/cf_stub.o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/main.o
+cd E:/C_FPGA_PRO/cnn_accelerator/Release
+# Preliminary link application ELF
+aarch64-linux-gnu-g++    E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/main.o  E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/portinfo.o -L/usr/lib -L/lib {--sysroot=E:\reconfiguration_lab\SYSROOT_arm64} {-Wl,-rpath-link=E:\reconfiguration_lab\SYSROOT_arm64/lib,-rpath-link=E:\reconfiguration_lab\SYSROOT_arm64/usr/lib} -lopencv_core -lopencv_highgui -lopencv_videoio -lopencv_imgcodecs -lopencv_imgproc   -L H:/Vivado/SDx/2018.2/target/aarch64-linux/lib -LE:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs -Wl,--start-group  -Wl,--end-group -Wl,--start-group    -lpthread -lsds_lib -lxlnk_stub  -Wl,--end-group -o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/cnn_accelerator.elf
+aarch64-linux-gnu-objcopy -R .xdinfo -R .xddata -R .xdasm -R .xdfcnmap -R .xdhlscore -R .xdif -R .xdparams -R .xdcore -R .xdrepo -R .xdsdata -R .xdpp E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/cnn_accelerator.elf
+cd E:/C_FPGA_PRO/cnn_accelerator/Release
+# Enable generation of hardware programming files
+# Enable generation of boot files
+# Calling VPL
+H:/Vivado/SDx/2018.2/bin/vpl   --iprepo E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/iprepo/repo  --iprepo H:/Vivado/SDx/2018.2/data/ip/xilinx  --platform H:/Vivado/SDx/2018.2/platforms/zcu104_dvfs/zcu104_dvfs.xpfm  --temp_dir E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/p0  --output_dir E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/p0/vpl  --input_file E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/p0/.xsd/top.bd.tcl  --target hw   --save_temps  --kernels convolution_hw:adapter --webtalk_flag SDSoC  --remote_ip_cache E:/C_FPGA_PRO/ip_cache --xp \"param:compiler.deleteDefaultReportConfigs=false\" 
+cd _sds/p0/.cf_work
+H:/Vivado/SDx/2018.2/bin/cf2sw  -i E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/.llvm/apsys_0.xml  -r E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/.cdb/xd_ip_db.xml  -a address_map.xml  -pollMode 0 -mc
+cd E:/C_FPGA_PRO/cnn_accelerator/Release
+# Software tracing enabled
+cd E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs
+# Compile hardware access API functions
+aarch64-linux-gnu-gcc       -I H:/Vivado/SDx/2018.2/target/aarch64-linux/include  -D HLS_NO_XIL_FPO_LIB  -I H:/Vivado/Vivado/2018.2/include -c  E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/portinfo.c
+aarch64-linux-gnu-g++      -I H:/Vivado/SDx/2018.2/target/aarch64-linux/include  -D HLS_NO_XIL_FPO_LIB  -I H:/Vivado/Vivado/2018.2/include -c  E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/cf_stub.c
+aarch64-linux-gnu-ar crs E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/libxlnk_stub.a E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/portinfo.o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/cf_stub.o
+cd E:/C_FPGA_PRO/cnn_accelerator/Release
+cd E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs
+aarch64-linux-gnu-ar crs E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/libcnn_accelerator.a E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/portinfo.o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/cf_stub.o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/main.o
+cd E:/C_FPGA_PRO/cnn_accelerator/Release
+# Link application ELF file
+aarch64-linux-gnu-g++    E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/main.o  E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/portinfo.o -L/usr/lib -L/lib {--sysroot=E:\reconfiguration_lab\SYSROOT_arm64} {-Wl,-rpath-link=E:\reconfiguration_lab\SYSROOT_arm64/lib,-rpath-link=E:\reconfiguration_lab\SYSROOT_arm64/usr/lib} -lopencv_core -lopencv_highgui -lopencv_videoio -lopencv_imgcodecs -lopencv_imgproc   -L H:/Vivado/SDx/2018.2/target/aarch64-linux/lib -LE:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs -Wl,--start-group  -Wl,--end-group -Wl,--start-group    -lpthread -lsds_lib -lxlnk_stub  -Wl,--end-group -o E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/cnn_accelerator.elf
+aarch64-linux-gnu-objcopy -R .xdinfo -R .xddata -R .xdasm -R .xdfcnmap -R .xdhlscore -R .xdif -R .xdparams -R .xdcore -R .xdrepo -R .xdsdata -R .xdpp E:/C_FPGA_PRO/cnn_accelerator/Release/_sds/swstubs/cnn_accelerator.elf
+# All user specified timing constraints are met.
+# sds++ completed at Wed Jun 12 18:37:11 +0800 2019
