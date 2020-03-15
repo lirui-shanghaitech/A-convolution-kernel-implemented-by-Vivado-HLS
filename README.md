@@ -8,7 +8,7 @@ are fxed value, that is, M=16, OR=56, OC=56, N=16, IR=56, IC=56, K=3, S=1, P=1, 
 - [ ] The data pack method is used to increase the bandwidth of the whole system.
 - [ ] The final speedup of this algorithm is 117.77x.
 
-## Hardware struture
+## Hardware structure
 ![hardware architecture](https://github.com/lirui-shanghaitech/A-convolution-kernel-implemented-by-Vivado-HLS/blob/master/fig/arch.PNG)
 
 We identify data reuse opportunities in the feature maps of neighboring tiles. To this end, we naturally
