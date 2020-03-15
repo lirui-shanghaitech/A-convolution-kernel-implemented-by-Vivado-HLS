@@ -1,1 +1,3 @@
 # A-convolution-kernel-implemented-by-Vivado-HLS
+This project implements a convolution kernel based on vivado HLS on `zcu104`. All the hyper parameters
+are fxed value, that is, M=16, OR=56, OC=56, N=16, IR=56, IC=56, K=3, S=1, P=1, so as to inform the speed up of our kernel compares to pure soft couterpart. Here OFM stands for output feature map, IFM stands for input feature map, W stands for weight, N stands for the number of input feature maps, m and n stands for the index of input feature map and output feature map, S stands for stride, r and c stands for row and column and P stands for Padding.
