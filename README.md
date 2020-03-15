@@ -1,12 +1,12 @@
-# A-convolution-kernel-implemented-by-Vivado-HLS
+# A convolution kernel implemented by Vivado HLS
 This project implements a convolution kernel based on `vivado HLS` on `zcu104`. All the hyper parameters
 are fxed value, that is, M=16, OR=56, OC=56, N=16, IR=56, IC=56, K=3, S=1, P=1, so as to inform the speed up of our kernel compares to pure soft couterpart. Here OFM stands for output feature map, IFM stands for input feature map, W stands for weight, N stands for the number of input feature maps, m and n stands for the index of input feature map and output feature map, S stands for stride, r and c stands for row and column and P stands for Padding.
 
 ## Highlights
-* A line buffer is used for input feature map buffer with Ping-Pong buffer protocol to reused and parallel process data.
-* A Ping-Pong buffer is used for output buffer to maximise parallelism of program.
-* The data pack method is used to increase the bandwidth of the whole system.
-* The final speedup of this algorithm is 117.77x.
+- [ ] A line buffer is used for input feature map buffer with Ping-Pong buffer protocol to reused and parallel process data.
+- [ ] A Ping-Pong buffer is used for output buffer to maximise parallelism of program.
+- [ ] The data pack method is used to increase the bandwidth of the whole system.
+- [ ] The final speedup of this algorithm is 117.77x.
 
 ## Hardware struture
 ![hardware architecture](https://github.com/lirui-shanghaitech/A-convolution-kernel-implemented-by-Vivado-HLS/blob/master/fig/arch.PNG)
